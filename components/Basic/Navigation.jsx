@@ -1,4 +1,4 @@
-import {FaSignInAlt, FaSignOutAlt, FaUser,FaUpload, FaListAlt} from 'react-icons/fa'
+ import {FaSignInAlt, FaSignOutAlt, FaUser,FaUpload, FaListAlt} from 'react-icons/fa'
 
 import {Link} from 'react-router-dom'
 
