@@ -4,7 +4,8 @@
   "description": "SLIIT Project Management application API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "test": "jest"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +22,8 @@
     "validator": "^12.2.0"
   },
   "devDependencies": {
+    "jest": "^28.1.0",
     "nodemon": "^2.0.2"
   }
 }
+
