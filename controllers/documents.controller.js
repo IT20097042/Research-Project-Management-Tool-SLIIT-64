@@ -1,4 +1,4 @@
-const Documents = require("../Models(db)/documents.model");
+const Documents = require("../models/documents.model");
 
 const uploadDocument = async (req, res) =>  {
     try{

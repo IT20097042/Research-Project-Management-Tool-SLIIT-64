@@ -1,4 +1,4 @@
-const MarkingScheme = require('../Models(db)/marking-scheme.model');
+const MarkingScheme = require('../models/marking-scheme.model');
 
 const createMarkingScheme = async (req, res) => {
     try{

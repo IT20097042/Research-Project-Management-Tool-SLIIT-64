@@ -1,4 +1,4 @@
-const SubmissionTypes = require("../Models(db)/submission-types.model");
+const SubmissionTypes = require("../models/submission-types.model");
 
 const getSubmissionTypes = async (req, res) => {
     try{

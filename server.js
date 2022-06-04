@@ -1,15 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+
 var fileUpload = require('express-fileupload');
+
 const passport = require('passport');
 const cors = require('cors');
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const JwtStrategy = require('passport-jwt').Strategy;
+
 const StudentSubmissions = require("./Models(db)/StudentSubmissions")
 const bodyParser = require('body-parser');
 
 //taking the student routes
 const studentRoutes = require('./routes/StudentsRoute');
+
 const authRouter = require('./routes/auth.route');
 const requestRouter = require('./routes/request.route');
 const submissionRouter = require('./routes/submission.route');
@@ -26,6 +30,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+
 //get the bodyparser to the app
 app.use(bodyParser.json());
 // encoding the bodyparser to the url, then making extends as false
@@ -34,6 +39,7 @@ app.use(
         extended: false
     })
 )
+
 app.use('/documents', express.static('uploads'));
 
 // const database = 'mongodb://localhost:27017/project_management?retryWrites=true&w=majority';
@@ -64,6 +70,7 @@ passport.use(
             .catch(error => console.log(error));
     })
 );
+
 //use the student routes.
 app.use('/student', studentRoutes);
 //file upload initializer
@@ -107,6 +114,7 @@ app.use('/api/submission-types', submissionTypesRouter);
 app.use('/api/documents', documentsRouter);
 app.use('/api/allocate-panel-member', allocatePanelRouter);
 app.use('/api/marking-scheme', markingSchemeRouter);
+
 
 app.use('/student', studentRoutes);
 

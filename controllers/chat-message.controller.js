@@ -1,7 +1,8 @@
-const User = require("../Models(db)/user.model");
-const ChatMessage = require("../Models(db)/chat-message.model");
-const ProjectGroup = require("../Models(db)/project-group.model");
-const ProjectGroupUserMap = require("../Models(db)/project-group-user-map.model");
+const User = require("../models/user.model");
+const ChatMessage = require("../models/chat-message.model");
+const ProjectGroup = require("../models/project-group.model");
+const ProjectGroupUserMap = require("../models/project-group-user-map.model");
+
 const { USER_TYPE, STATUS_TYPE, REQUEST_TYPE } = require('../constants/constant');
 
 const add = async (req, res) => {
