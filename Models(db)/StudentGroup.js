@@ -27,6 +27,10 @@ const StudentGroupSchema = new Schema({
             //required: true
         }
     }],
+    Topic_Status:{
+        type: String,
+        trim: true
+    },
 
     groupMembers: [{
         _id: {
@@ -51,6 +55,12 @@ const StudentGroupSchema = new Schema({
             required: false
         }
     }],
+    panelMembers: [{
+        _id: {
+            type: String,
+            ref: "students"
+        },
+    }]
 });
 
 //now we have to export this,
