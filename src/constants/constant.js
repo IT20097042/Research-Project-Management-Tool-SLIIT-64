@@ -22,11 +22,13 @@ const SUBMISSION_TYPE = {
     FINAL_THESIS: 3
 }
 
-const API_BASE_URL = 'http://localhost:3000/api'
+const API_BASE_URL = 'http://localhost:3000/api';
+const API_FILE_URL = 'http://localhost:3000/documents';
 
 module.exports = {
     USER_TYPE: USER_TYPE,
     API_BASE_URL: API_BASE_URL,
+    API_FILE_URL: API_FILE_URL,
     STATUS_TYPE: STATUS_TYPE,
     REQUEST_TYPE: REQUEST_TYPE,
     SUBMISSION_TYPE: SUBMISSION_TYPE

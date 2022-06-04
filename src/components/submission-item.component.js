@@ -106,13 +106,12 @@ class SubmissionItem extends Component {
                     <div className="col-md-12">
                         <TextField
                             fullWidth
-                            label="ADD MARKS with Comments"
+                            label="Type Marks"
                             multiline
                             value={this.state.message}
                             onChange={this.onChangeMessage}
                             rows={2}
                         />
-                        
                     </div>
                 </CardContent>
                 <CardActions>
