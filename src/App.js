@@ -15,6 +15,12 @@ import Topics from "./pages/Topics/Topics";
 import Submissions from "./pages/Submissions/Submissions";
 import Chat from "./pages/Chat/Chat";
 import ChatGroups from "./pages/CharGroups/ChatGroups";
+import Users from "./pages/Users/Users";
+import SubmissionTypes from "./pages/SubmissionTypes/SubmissionTypes";
+import UploadDocuments from "./pages/UploadDocuments/UploadDocuments";
+import AllocatePanelMembers from "./pages/AllocatePannelMembers/AllocatePanelMembers";
+import MarkingScheme from "./pages/MarkingScheme/MarkingScheme";
+import EditUser from "./pages/Users/EditUser";
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +45,7 @@ class App extends Component {
     if (user) {
       this.setState({
         currentUser: user,
+        isAdmin: user.user_type == USER_TYPE.ADMIN,
         isStudent: user.user_type == USER_TYPE.STUDENT,
         isSupervisor: user.user_type == USER_TYPE.SUPERVISOR,
         isPanelMember: user.user_type == USER_TYPE.PANEL_MEMBER,
@@ -51,7 +58,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentUser, isStudent, isSupervisor, isPanelMember } = this.state;
+    const { currentUser, isAdmin, isStudent, isSupervisor, isPanelMember } = this.state;
 
     return (
       <Router history={history}>
@@ -66,6 +73,35 @@ class App extends Component {
                   Home
                 </Link>
               </li>
+              {isAdmin && (
+                <div className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link to={"/users"} className="nav-link">
+                      Users
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/submission-types"} className="nav-link">
+                      Submission Types
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/allocate-panel-members"} className="nav-link">
+                      Allocate panel members
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/documents"} className="nav-link">
+                      Documents
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/marking-schemes"} className="nav-link">
+                      Marking Schemes
+                    </Link>
+                  </li>
+                </div>
+              )}
               {isStudent && (
                 <li className="nav-item">
                   <Link to={"/student"} className="nav-link">
@@ -142,13 +178,20 @@ class App extends Component {
           </nav>
           <div className="container mt-3">
             <Switch>
-              <Route exact path={["/", "/home", "/student", "/supervisor", "/panel"]} component={Home} />
+              <Route exact path={["/", "/home", "/admin", "/student", "/supervisor", "/panel"]} component={Home} />
               <Route exact path="/signin" component={SignIn} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/request" component={Topics} />
               <Route exact path="/submission" component={Submissions} />
               <Route exact path="/chat-group" component={ChatGroups} />
               <Route exact path="/chat-group/:project" component={Chat} />
+
+              <Route exact path="/users" component={Users} />
+              <Route exact path="/users/edit" component={EditUser} />
+              <Route exact path="/submission-types" component={SubmissionTypes}/>
+              <Route exact path="/documents" component={UploadDocuments}/>
+              <Route exact path='/allocate-panel-members' component={AllocatePanelMembers}/>
+              <Route exact path='/marking-schemes' component={MarkingScheme}/>
             </Switch>
           </div>
         </div>

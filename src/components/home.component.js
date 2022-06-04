@@ -6,6 +6,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isAdmin: false,
       isStudent: false,
       isSupervisor: false,
       isPanelMember: false,
@@ -19,6 +20,7 @@ class Home extends Component {
     if (user) {
       this.setState({
         currentUser: user,
+        isAdmin: user.user_type == USER_TYPE.ADMIN,
         isStudent: user.user_type == USER_TYPE.STUDENT,
         isSupervisor: user.user_type == USER_TYPE.SUPERVISOR,
         isPanelMember: user.user_type == USER_TYPE.PANEL_MEMBER,
@@ -27,7 +29,9 @@ class Home extends Component {
   }
 
   getDesignation() {
-    if (this.state.isStudent) {
+    if (this.state.isAdmin) {
+      return 'Admin';
+    } else if (this.state.isStudent) {
       return 'Student';
     } else if (this.state.isSupervisor) {
       return 'Supervisor';

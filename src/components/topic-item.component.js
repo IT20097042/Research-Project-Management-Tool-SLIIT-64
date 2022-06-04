@@ -110,9 +110,6 @@ class TopicItem extends Component {
                             onChange={this.onChangeMessage}
                             rows={2}
                         />
-                        
-                        
-
                     </div>}
                 </CardContent>
                 <CardActions>
