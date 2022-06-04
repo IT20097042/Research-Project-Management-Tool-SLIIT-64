@@ -1,0 +1,27 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0-beta1",
+    "downloadjs": "^1.4.7",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.3.0"
+  },
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "parcel": "^2.5.0",
+    "process": "^0.11.10"
+  }
+}
